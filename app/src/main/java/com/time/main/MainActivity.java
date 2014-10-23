@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.time.main.Utils.DateUtils;
 
 
 public class MainActivity extends Activity {
@@ -12,6 +15,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //当前的UTC时间转换为本地时间
+        Toast.makeText(this, DateUtils.timestampToDeatil(DateUtils.getUTCCurrentTimestamp()),Toast.LENGTH_SHORT).show();
+
+        //当前的本地时间转换为UTC时间
+        Toast.makeText(this, DateUtils.getUTCTimestamp(System.currentTimeMillis()+""),Toast.LENGTH_SHORT).show();
+
     }
 
 
